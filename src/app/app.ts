@@ -2,8 +2,10 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   inject,
   OnInit,
+  signal,
 } from '@angular/core';
 import {
   FormsModule, // прості форми
@@ -27,6 +29,13 @@ export class App implements OnInit {
 
   private _todos: TodoItem[] = [];
   activeTodos: TodoItem[] = [];
+  // private todosService = inject(TodosService);
+
+  // todos = signal<TodoItem[]>([]);
+
+  // activeTodos = computed(() => {
+  //   return this.todos().filter((todo: TodoItem) => !todo.completed);
+  // });
 
   get todos() {
     return this._todos;
@@ -41,6 +50,14 @@ export class App implements OnInit {
     this.activeTodos = this._todos.filter((todo: TodoItem) => !todo.completed);
   }
 
+  // ngOnInit(): void {
+  //   this.todosService.todos$.subscribe((todos) => {
+  //     if (todos) {
+  //       this.todos.set(todos);
+  //     }
+  //   });
+  // }
+
   ngOnInit(): void {
     this.todosService.todos$.subscribe((todos) => (this.todos = todos));
   }
@@ -54,9 +71,7 @@ export class App implements OnInit {
   }
 
   toggle(todo: TodoItem) {
-    this.todosService
-      .updateTodo({ ...todo, completed: !todo.completed })
-      .subscribe();
+    this.todosService.updateTodo({ ...todo, completed: !todo.completed }).subscribe();
   }
 
   renameTodo({ todo, title }: { todo: TodoItem; title: string }) {

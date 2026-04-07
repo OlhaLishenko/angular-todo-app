@@ -30,7 +30,7 @@ export class Todo implements OnChanges {
   @Output() toggle = new EventEmitter();
   @Output() renameTodo = new EventEmitter<{
     todo: TodoItem;
-    newTitle: string;
+    title: string;
   }>();
 
   @ViewChild('titleField')
@@ -59,6 +59,6 @@ export class Todo implements OnChanges {
     }
 
     this.editing = false;
-    this.renameTodo.emit({ todo: this.todo, newTitle: this.title });
+    this.renameTodo.emit({ todo: this.todo, title: this.title });
   }
 }
