@@ -50,14 +50,6 @@ export class App implements OnInit {
     this.activeTodos = this._todos.filter((todo: TodoItem) => !todo.completed);
   }
 
-  // ngOnInit(): void {
-  //   this.todosService.todos$.subscribe((todos) => {
-  //     if (todos) {
-  //       this.todos.set(todos);
-  //     }
-  //   });
-  // }
-
   ngOnInit(): void {
     this.todosService.todos$.subscribe((todos) => (this.todos = todos));
   }

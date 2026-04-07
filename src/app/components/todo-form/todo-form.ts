@@ -1,11 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  inject,
-  Input,
-  output,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, inject, Input, output, Output } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -19,6 +12,7 @@ import { TodosService } from '../../services/todos.service';
   selector: 'app-todo-form',
   imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './todo-form.html',
+  styleUrl: './todoForm.scss',
 })
 export class TodoForm {
   todosService = inject(TodosService);

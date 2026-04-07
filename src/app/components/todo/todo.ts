@@ -20,6 +20,7 @@ import { TodosService } from '../../services/todos.service';
   selector: 'app-todo',
   imports: [FormsModule, LowerCasePipe],
   templateUrl: './todo.html',
+  styleUrl: './todo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Todo implements OnChanges {
