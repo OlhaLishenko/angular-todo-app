@@ -7,7 +7,6 @@ import {
   inject,
   Input,
   OnChanges,
-  output,
   Output,
   SimpleChanges,
   ViewChild,
@@ -21,7 +20,7 @@ import { TodosService } from '../../services/todos.service';
   selector: 'app-todo',
   imports: [FormsModule, LowerCasePipe],
   templateUrl: './todo.html',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Todo implements OnChanges {
   todosService = inject(TodosService);
