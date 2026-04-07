@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "id": 264332,
+      "createdAt": "2025-10-21T11:55:29.284Z",
+      "updatedAt": "2025-10-21T12:27:38.227Z",
+      "userId": 3214,
+      "title": "go to gym",
+      "completed": true
+    },
+    {
+      "id": 264333,
+      "createdAt": "2025-10-21T11:55:29.755Z",
+      "updatedAt": "2025-10-21T12:27:39.126Z",
+      "userId": 3214,
+      "title": "buy a shampoo",
+      "completed": true
+    },
+    {
+      "id": 264334,
+      "createdAt": "2025-10-21T11:55:30.314Z",
+      "updatedAt": "2025-10-21T12:27:39.879Z",
+      "userId": 3214,
+      "title": "visit Kate",
+      "completed": true
+    },
+    {
+      "id": 264335,
+      "createdAt": "2025-10-21T11:55:30.927Z",
+      "updatedAt": "2025-10-21T12:25:49.717Z",
+      "userId": 3214,
+      "title": "repaire chair",
+      "completed": false
+    }
+  ]
+}
