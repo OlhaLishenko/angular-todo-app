@@ -1,11 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  inject,
-  Input,
-  output,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -14,9 +7,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { TodosService } from '../../services/todos.service';
-
 @Component({
   selector: 'app-todo-form',
+  standalone: true,
   imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './todo-form.html',
 })

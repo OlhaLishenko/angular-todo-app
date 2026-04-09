@@ -1,6 +1,9 @@
-import { bootstrapApplication } from '@angular/platform-browser'; // функція запуску Angular
-import { appConfig } from './app/app.config'; // конфіг додатку
-import { App } from './app/app'; // головний компонент (раніше AppComponent)
+import { bootstrapApplication } from '@angular/platform-browser';
+import { App } from './app/app';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { appConfig } from './app/app.config';
 
-bootstrapApplication(App, appConfig).catch((err) => console.error(err));
-// запуск Angular і рендер компонента App
+bootstrapApplication(App, {
+  ...appConfig,
+  providers: [...(appConfig.providers || []), provideHttpClient(withFetch())],
+}).catch((err) => console.error(err));

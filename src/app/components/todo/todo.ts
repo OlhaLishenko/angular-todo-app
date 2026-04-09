@@ -1,5 +1,4 @@
 import {
-  AfterViewChecked,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
@@ -7,21 +6,20 @@ import {
   inject,
   Input,
   OnChanges,
-  output,
   Output,
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { Todo as TodoItem } from '../../types/todo';
 import { FormsModule } from '@angular/forms';
-import { JsonPipe, LowerCasePipe } from '@angular/common';
+import { LowerCasePipe } from '@angular/common';
 import { TodosService } from '../../services/todos.service';
-
 @Component({
   selector: 'app-todo',
+  standalone: true,
   imports: [FormsModule, LowerCasePipe],
   templateUrl: './todo.html',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Todo implements OnChanges {
   todosService = inject(TodosService);
@@ -31,7 +29,7 @@ export class Todo implements OnChanges {
   @Output() toggle = new EventEmitter();
   @Output() renameTodo = new EventEmitter<{
     todo: TodoItem;
-    newTitle: string;
+    title: string;
   }>();
 
   @ViewChild('titleField')
@@ -60,6 +58,6 @@ export class Todo implements OnChanges {
     }
 
     this.editing = false;
-    this.renameTodo.emit({ todo: this.todo, newTitle: this.title });
+    this.renameTodo.emit({ todo: this.todo, title: this.title });
   }
 }
